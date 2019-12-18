@@ -1,0 +1,55 @@
+body {
+    background-color: white;
+}
+
+.content  { 
+    height: 100%;
+    width: 100%; 
+    /* background-color: black; */
+    background-image: url('/images/woman-driving.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.navbar {
+    background-color: white;
+    font-family: 'Roboto', sans-serif;
+    padding-left: 40px; 
+    padding-top: 30px;
+    padding-bottom: 40px;
+    font-size: 30px;
+    width: 100%;
+    margin: 0;
+    color: black; 
+}
+.answer-area { 
+    position: fixed;
+    bottom: 80px; 
+    width: 30%;
+    margin-left: 60%;
+}
+
+.form-control {
+    padding: 10px 20px; 
+}
+
+.input-group-btn {
+    margin-left: 5000px;
+}
+
+.chatbox-response-bubble {
+    /* position: relative; */
+    background-color: #030303b2; 
+    width: 30%; 
+    display: block;
+    margin-left: 60%;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 30px 20px;
+    color: white;
+    border-radius: 50px;
+}
+
+.chatbox-image { 
+    width: 20%;
+}
