@@ -141,7 +141,7 @@ html, body {
     font-family: var(--text-body-font);
     color: var(--text-body-color);
     /* color: white; */
-    font-size: 1.4em;
+    font-size: 1.2em;
     text-justify: newspaper;
 }
 
@@ -259,8 +259,8 @@ html, body {
 }
 
 .specialising-list {
-    line-height: 2em;
-    padding-left: 5vw;
+    line-height: 2.5em;
+    padding-left: 2.5em;
 }
 
 .specialising-sub-list {
