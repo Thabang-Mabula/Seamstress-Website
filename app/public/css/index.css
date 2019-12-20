@@ -274,3 +274,22 @@ html, body {
 .partial-underline{ 
     box-shadow: 0 25px 0 -23px #5CC7A8;
 }
+
+.spec-btn {
+    background-color: rgb(140, 140, 140);
+    color: var(--off-white-color);
+    border-radius: 100%;
+    width: 10em; 
+    height: 10em;
+    /* box-shadow: 0em 0em 0.5em rgba(126, 126, 126, 0.3); */
+}
+
+.spec-btn:hover {
+    width: 13em;
+    height: 13em;
+    border: 0.5em solid rgb(140, 140, 140);
+    background-color: var(--off-white-color);
+    font-weight: bolder;
+    /* font-size: 1em; */
+    /* box-shadow: 0em 0em 0.5em rgba(126, 126, 126, 0.3); */
+}
