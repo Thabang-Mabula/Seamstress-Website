@@ -266,3 +266,11 @@ html, body {
 .specialising-sub-list {
     line-height: 1.4em;
 }
+
+.benefits-list {
+    list-style-type: none;
+    line-height: 2.5em;
+}
+.partial-underline{ 
+    box-shadow: 0 25px 0 -23px #5CC7A8;
+}
