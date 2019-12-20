@@ -293,3 +293,8 @@ html, body {
     /* font-size: 1em; */
     /* box-shadow: 0em 0em 0.5em rgba(126, 126, 126, 0.3); */
 }
+
+.spec-btn:active, .spec-btn:visited, .spec-btn:focus {
+    border-color: none !important;
+    box-shadow: none;
+}
