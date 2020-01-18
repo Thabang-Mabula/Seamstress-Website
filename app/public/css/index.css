@@ -7,6 +7,7 @@
     --text-body-color: rgb(38, 38, 38);
     --brand-name-font: 'Old Standard TT', serif;
     --off-white-color: #fefeff;
+    --blue-color:  rgb(2, 2, 14);
 }
 
 html, body {
@@ -272,7 +273,7 @@ html, body {
     line-height: 2.5em;
 }
 .partial-underline{ 
-    box-shadow: 0 25px 0 -23px #5CC7A8;
+    border-bottom: 0.1em solid var(--blue-color);
 }
 
 .spec-btn {
@@ -300,3 +301,12 @@ html, body {
     border-color: none !important;
     box-shadow: none;
 }
+
+.transition{
+
+    -webkit-transition: left 0.3s ease-out;  /* Chrome 1-25, Safari 3.2+ */
+       -moz-transition: left 0.3s ease-out;  /* Firefox 4-15 */
+         -o-transition: left 0.3s ease-out;  /* Opera 10.50–12.00 */
+            transition: left 0.3s ease-out;  /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
+  
+  }

@@ -39,5 +39,27 @@
 // two.update()
 
 $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
+  // $('[data-toggle="tooltip"]').tooltip()
+})
+
+// $('.spec-btn').click(() => {
+//   // let waitDuration = 5000
+//   // setTimeout(() => {
+//   // $('.spec-row').toggleClass('transition')
+//   // }, waitDuration)
+//   $(this).remove()
+
+//   console.log($(this).attr('Value'))
+// })
+
+// $('.spec-btn').on('click', () => {
+//   // $(this).remove()
+//   console.log('Button clicked')
+// })
+
+$(document).ready(function () {
+  $(document).on('click', '.spec-btn', () => {
+    $(this).text('Done nigga')
+    // console.log('Button clicked')
+  })
 })
