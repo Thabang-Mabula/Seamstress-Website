@@ -7,6 +7,7 @@
     --text-body-color: rgb(38, 38, 38);
     --brand-name-font: 'Old Standard TT', serif;
     --off-white-color: #fefeff;
+    --blue-color:  rgb(2, 2, 14);
 }
 
 html, body {
@@ -272,5 +273,40 @@ html, body {
     line-height: 2.5em;
 }
 .partial-underline{ 
-    box-shadow: 0 25px 0 -23px #5CC7A8;
+    border-bottom: 0.1em solid var(--blue-color);
 }
+
+.spec-btn {
+    background-color: rgb(140, 140, 140);
+    color: var(--off-white-color);
+    border-radius: 100%;
+    width: 10em; 
+    height: 10em;
+    font-family: var(--text-body-font);
+    margin-bottom: 3em
+    /* box-shadow: 0em 0em 0.5em rgba(126, 126, 126, 0.3); */
+}
+
+.spec-btn:hover {
+    width: 12em;
+    height: 12em;
+    border: 0.3em solid rgb(140, 140, 140);
+    background-color: var(--off-white-color);
+    font-weight: bolder;
+    /* font-size: 1em; */
+    /* box-shadow: 0em 0em 0.5em rgba(126, 126, 126, 0.3); */
+}
+
+.spec-btn:active, .spec-btn:visited, .spec-btn:focus {
+    border-color: none !important;
+    box-shadow: none;
+}
+
+.transition{
+
+    -webkit-transition: left 0.3s ease-out;  /* Chrome 1-25, Safari 3.2+ */
+       -moz-transition: left 0.3s ease-out;  /* Firefox 4-15 */
+         -o-transition: left 0.3s ease-out;  /* Opera 10.50–12.00 */
+            transition: left 0.3s ease-out;  /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
+  
+  }

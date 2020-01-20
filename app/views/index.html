@@ -92,10 +92,10 @@
                 <ul class="benefits-list">
                     <li class="partial-underline"> Sticking to customer deadlines </li>
                     <li class="partial-underline"> Great communication with clients </li>
-                    <li class="partial-underline"> Producing high-quality garments </li>
+                    <li> Producing high-quality garments </li>
                 </ul>
             </div>
-           
+
             <!-- <div class="col-lg-4 col-md-12 col-sm-4 col-xs-12 ad-qualities-text">
 
                 <img src="/images/time.png" class="advert-image">
@@ -118,12 +118,45 @@
             </div> -->
         </div>
 
-        <div class="row">
-            <div class="col-lg-12">
+        <div class="row spec-row">
+            <div class="col-lg-12 d-flex justify-content-center">
                 <div class="about-me-body body-text margin-sm-bottom">
                     <p>I specialise in:</p>
-                    <ul class="specialising-list">
-                        <li> Alterations </li>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-6 d-flex justify-content-center">
+                <button class="btn spec-btn" data-toggle="modal" data-target="#exampleModal">Alterations </button>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-6 d-flex justify-content-center">
+                <button class="btn spec-btn" data-toggle="tooltip" data-placement="top"
+                    title="Click to find out more">Wedding outfits </button>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-6 d-flex justify-content-center">
+                <button class="btn spec-btn" data-toggle="tooltip" data-placement="top"
+                    title="Click to find out more">Special outfits</button>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-6 d-flex justify-content-center">
+                <button class="btn spec-btn" data-toggle="tooltip" data-placement="top"
+                    title="Click to find out more">Casual outfits</button>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-6 d-flex justify-content-center">
+                <button class="btn spec-btn" data-toggle="tooltip" data-placement="top"
+                    title="Click to find out more">Uniforms</button>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-6 d-flex justify-content-center">
+                <button class="btn spec-btn" data-toggle="tooltip" data-placement="top"
+                    title="Click to find out more" id = "bedding">Bedding & <br> Linen</button>
+            </div>
+
+
+
+            <!-- <ul class="specialising-list">
                         <li> Weddings: </li>
                         <ul class="specialising-sub-list">
                             <li> Wedding gowns </li>
@@ -153,12 +186,13 @@
                             <li> Bedsheets </li>
                         </ul>
 
-                    </ul>
+                    </ul> -->
 
-                    Click the button below to take a look at the gallery of amazing things I’ve done for clients in the
-                    past:
-                </div>
+            <div class="col-lg-12 d-flex justify-content-center about-me-body body-text text-center">
+                Click the button below to take a look at the gallery of amazing things I’ve done for clients in the
+                past:
             </div>
+
             <div class="col-lg-12 text-center ">
                 <button type="button" class="btn btn-outline-dark submit-btn margin-lg-bottom">View Gallery</button>
             </div>
@@ -233,6 +267,27 @@
 
     </div>
 
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer class="page-footer">
         <div class="container-fluid blue-color">
             <div class="row">
@@ -262,7 +317,7 @@
     <script src="/js/jquery-3.4.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/two.js"></script>
-    <!-- <script src="/js/index.js"></script> -->
+    <script src="/js/index.js"></script>
 
 </body>
 
