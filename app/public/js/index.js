@@ -62,4 +62,6 @@ $(document).ready(function () {
     $(this).text('Done nigga')
     // console.log('Button clicked')
   })
+
+  $('#ul-li').lightGallery()
 })

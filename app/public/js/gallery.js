@@ -1,3 +1,5 @@
 $(document).ready(function () {
-  $('#lightgallery').lightGallery()
+  $('#lightgallery').lightGallery({
+    // selector: '.selector'
+  })
 })

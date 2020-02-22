@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/gallery.css">
     <link type="text/css" rel="stylesheet" href="css/lightgallery.css" />
 </head>
 
@@ -51,16 +52,43 @@
             </div>
 
         </div>
-        <div class="row">
-            <div id="lightgallery">
-                <a href="./images/sewing-machine.jpg">
-                    <img src="./images/sewing-machine.jpg" />
-                </a>
-                <a href="./images/sewing-machine.jpg">
-                    <img src="./images/sewing-machine.jpg" />
-                </a>
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-10">
+                <ul class="img-list" id="lightgallery">
+                    <li class="img-list-item" data-src="./images/sewing-machine.jpg">
+                        <img class="img-thumbnail" src="./images/sewing-machine.jpg" />
+                    </li>
+                    <li class="img-list-item" data-src="./images/sewing-machine.jpg">
+                        <img class="img-thumbnail" src="./images/sewing-machine.jpg" />
+                    </li>
+                    <li class="img-list-item" data-src="./images/sewing-machine.jpg">
+                        <img class="img-thumbnail" src="./images/sewing-machine.jpg" />
+                    </li>
+                    <li class="img-list-item" data-src="./images/sewing-machine.jpg">
+                        <img class="img-thumbnail" src="./images/sewing-machine.jpg" />
+                    </li>
+                    <li class="img-list-item" data-src="./images/sewing-machine.jpg">
+                        <img class="img-thumbnail" src="./images/sewing-machine.jpg" />
+                    </li>
+                    <li class="img-list-item" data-src="./images/sewing-machine.jpg">
+                        <img class="img-thumbnail" src="./images/sewing-machine.jpg" />
+                    </li>
+                </ul>
             </div>
+
+            <!-- <div id="lightgallery">
+                <div class="selector" data-src="./images/sewing-machine.jpg">
+                    <img class="img-thumbnail img-fluid" src="./images/sewing-machine.jpg">
+                </div>
+                <div class="selector" data-src="./images/sewing-machine.jpg">
+                    <img class="img-thumbnail img-fluid" src="./images/sewing-machine.jpg">
+                </div>
+                <div class="selector" data-src="./images/sewing-machine.jpg">
+                    <img class="img-thumbnail img-fluid" src="./images/sewing-machine.jpg">
+                </div>
+            </div> -->
         </div>
+    </div>
     </div>
 
     <footer class="page-footer">
