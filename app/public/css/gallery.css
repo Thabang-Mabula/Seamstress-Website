@@ -12,6 +12,7 @@ ul.img-list::after {
 ul.img-list li {
     float: left;
     width: 30%;
+    margin: 0.2em;
 }
 
 /* .img-list-item {
