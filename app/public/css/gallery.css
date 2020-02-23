@@ -11,7 +11,7 @@ ul.img-list::after {
 
 ul.img-list li {
     float: left;
-    width: 30%;
+    width: 40%;
     margin: 0.2em;
 }
 
@@ -21,8 +21,8 @@ ul.img-list li {
 } */
 
 .img-thumbnail {
-    max-width: 30%;
-    width: 10%;
+    max-width: 40%;
+    width: 40%;
     height: auto;
     /* float: left; */
 }
