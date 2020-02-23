@@ -1,4 +1,5 @@
 'use strict'
+global.__basedir = __dirname
 
 let express = require('express')
 let path = require('path')
@@ -8,6 +9,7 @@ let mainRouter = require('./app/routes/mainRoutes')
 app.set('views', path.join(__dirname, './app/views'))
 app.use(express.static(path.join(__dirname, './app/public')))
 app.use(express.static(path.join(__dirname, './app/controllers')))
+
 app.engine('html', require('ejs').renderFile)
 app.set('view engine', 'html')
 

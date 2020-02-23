@@ -62,4 +62,10 @@ $(document).ready(function () {
     $(this).text('Done nigga')
     // console.log('Button clicked')
   })
+
+  $('#view-gallery-btn').click(() => {
+    window.location.href = '/gallery'
+  })
+
+  $('#ul-li').lightGallery()
 })

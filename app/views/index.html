@@ -10,6 +10,8 @@
 </head>
 
 <body>
+    <div id="header"></div>
+
     <!--Navbar-->
     <nav class="navbar navbar-light bg-off-white fixed-top">
         <a class="navbar-brand brand-name-font" href="#">El Olam Fashion</a>
@@ -21,16 +23,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About Us</a>
+                    <a class="nav-link" href="/#about-us-anchor">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Gallery</a>
+                    <a class="nav-link gallery-link" href="/gallery">Gallery</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact Us</a>
+                    <a class="nav-link" href="/#contact-us-anchor">Contact Us</a>
                 </li>
             </ul>
         </div>
@@ -45,7 +47,7 @@
 
             <!-- Heading Div -->
             <div class="col-lg-12 col-sm-12 col-md-12 col-12">
-                <div class="landing-image" id="landing-image">
+                <div class="landing-image parallax-window" id="landing-image">
                 </div>
             </div>
         </div>
@@ -61,11 +63,11 @@
             </div>
         </div>
 
-
+        <a id="about-us-anchor"></a>
         <div class="row">
             <div class="col-lg-6 col-sm-8 col-10">
                 <div class="about-me-heading-container">
-                    <h1 class="about-me-heading"> About Us </h1>
+                    <h1 id="about-me-heading" class="about-me-heading"> About Us </h1>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-4 col-2">
@@ -126,7 +128,8 @@
             </div>
 
             <div class="col-lg-4 col-md-4 col-sm-4 col-6 d-flex justify-content-center">
-                <button class="btn spec-btn" data-toggle="modal" data-target="#exampleModal">Alterations </button>
+                <button class="btn spec-btn" data-toggle="tooltip" data-placement="top"
+                title="Click to find out more">Alterations </button>
             </div>
 
             <div class="col-lg-4 col-md-4 col-sm-4 col-6 d-flex justify-content-center">
@@ -194,17 +197,18 @@
             </div>
 
             <div class="col-lg-12 text-center ">
-                <button type="button" class="btn btn-outline-dark submit-btn margin-lg-bottom">View Gallery</button>
+                <button type="button" id="view-gallery-btn"class="btn btn-outline-dark submit-btn margin-lg-bottom">View Gallery</button>
             </div>
+
         </div>
 
-
+        <a id="contact-us-anchor"></a>
         <div class="row d-flex justify-content-center contact-us-row">
             <div class="col-lg-3 col-sm-2 col-1">
 
             </div>
             <div class="col-lg-6 col-sm-8 col-10">
-                <div class="contact-us-heading-container">
+                <div id="contact-us-anchor" class="contact-us-heading-container">
                     <h1 class="contact-us-heading"> Contact Us </h1>
                 </div>
 
@@ -217,10 +221,12 @@
 
             </div>
 
+
+
             <div class="col-lg-3 col-sm-6 col-8">
-                <input class="form-control contact-detail-text-field" type="text" placeholder="Name">
-                <input class="form-control contact-detail-text-field" type="email" placeholder="Email Address">
-                <input class="form-control contact-detail-text-field" type="tel" placeholder="Contact number">
+                <input id="customer-name" class="form-control contact-detail-text-field" type="text" placeholder="Name">
+                <input id="customer-email" class="form-control contact-detail-text-field" type="email" placeholder="Email Address">
+                <input id="customer-tel" class="form-control contact-detail-text-field" type="tel" placeholder="Contact number">
             </div>
 
             <div class="col-lg-1 col-sm-3 col-2">
@@ -232,16 +238,25 @@
             </div>
 
             <div class="col-lg-5  col-sm-10 col-10">
-                <textarea class="form-control product-description"
+                <textarea id="customer-query" class="form-control product-description"
                     placeholder="Provide a brief description of what you'd like us to do for you"></textarea>
             </div>
 
             <div class=" col-lg-2 col-sm-1 col-1">
             </div>
 
-            <div class="col-lg-12 col-sm-12 col-12 d-flex justify-content-center">
-                <button type="button" class="btn btn-outline-dark submit-btn">Submit</button>
+            <div id="submission-response-area'" class="col-lg-12 col-sm-12 col-12 d-flex justify-content-center">
+                <!-- <div class="alert alert-success alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                     <strong>Thank you for submitting your query</strong>
+                </div> -->
             </div>
+
+            <div class="col-lg-12 col-sm-12 col-12 d-flex justify-content-center">
+                <button id="contact-form-submit-btn" type="button" class="btn btn-outline-dark submit-btn">Submit</button>
+            </div>
+
+            
 
             <div class="col-lg-10 col-sm-10 col-10 d-flex justify-content-center">
                 <p class="body-text margin-lg-top">Alternatively, use the contact details below: </p>
@@ -302,7 +317,7 @@
                     <ul>
                         <li>Home </li>
                         <li>About Us </li>
-                        <li>Gallery</li>
+                        <li><a class="gallery-link">Gallery </a></li>
                         <li>Contact Us</li>
                     </ul>
                 </div>
@@ -313,11 +328,13 @@
         </div>
     </footer>
 
-
     <script src="/js/jquery-3.4.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/two.js"></script>
     <script src="/js/index.js"></script>
+    <script src="/js/routing.js"></script>
+    <script src="/js/parallax.min.js"></script>
+    <script src="/js/form.js"></script>
 
 </body>
 

@@ -1,0 +1,28 @@
+ul.img-list { 
+    list-style-type: none;
+    display: inline-block;
+    text-align: justify;
+}
+
+ul.img-list::after {
+    content: ""; 
+    width: 100%;
+}
+
+ul.img-list li {
+    float: left;
+    width: 40%;
+    margin: 0.2em;
+}
+
+/* .img-list-item {
+    display: inline-block;
+    /* text-align: justify; */
+} */
+
+.img-thumbnail {
+    max-width: 40%;
+    width: 40%;
+    height: auto;
+    /* float: left; */
+}
