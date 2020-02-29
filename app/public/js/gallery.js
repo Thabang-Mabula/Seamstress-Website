@@ -28,5 +28,4 @@ $.ajax({
 
 $(document).ready(function () {
   $('#ul-li').lightGallery()
-  console.log('we eventually get here')
 })
