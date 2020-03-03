@@ -224,9 +224,9 @@
 
 
             <div class="col-lg-3 col-sm-6 col-8">
-                <input id="customer-name" class="form-control contact-detail-text-field" type="text" placeholder="Name">
+                <input id="customer-name" class="form-control contact-detail-text-field" type="text" placeholder="First name" maxlength="30" data-parsley-type="alphanum" required>
                 <input id="customer-email" class="form-control contact-detail-text-field" type="email" placeholder="Email Address">
-                <input id="customer-tel" class="form-control contact-detail-text-field" type="tel" placeholder="Contact number">
+                <input id="customer-tel" class="form-control contact-detail-text-field" type="tel" placeholder="Contact number" data-parsley-type="digits" data-parsley-length="[10, 10]">
             </div>
 
             <div class="col-lg-1 col-sm-3 col-2">
@@ -334,6 +334,7 @@
     <script src="/js/index.js"></script>
     <script src="/js/routing.js"></script>
     <script src="/js/parallax.min.js"></script>
+    <script src="/js/parsley.min.js"></script>
     <script src="/js/form.js"></script>
 
 </body>

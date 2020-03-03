@@ -24,8 +24,13 @@ mainRouter.get('/gallery', function (req, res) {
   res.status(200)
 })
 
-mainRouter.post('/api/gallery', function (req, res) {
-  res.send(getFileNames())
-  res.status(200)
+// mainRouter.post('/api/gallery', function (req, res) {
+//   res.send(getFileNames())
+//   res.status(200)
+// })
+
+mainRouter.post('/api/submitQuery', function (req, res) {
+  console.log('Post made')
+  console.log(req.body)
 })
 module.exports = mainRouter
