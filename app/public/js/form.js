@@ -1,5 +1,5 @@
 class ContactRequest {
-  constructor(name, emailAddress, contactNumber = '', comment) {
+  constructor (name, emailAddress, contactNumber = '', comment) {
     this.name = name
     this.emailAddress = emailAddress
     this.contactNumber = contactNumber
@@ -7,34 +7,46 @@ class ContactRequest {
   }
 }
 
-function validName(errorArray) {
-  let customerName = $('#customer-name').parsley()
-  console.log('Is valid name? ' + customerName.isValid())
-  if (!(customerName.isValid())) {
-    $('#customer-name').val('')
-    errorArray.push = 'Name must have alphanumeric characters only and be less than 30 characters long'
-    return false
+class ErrorMessage {
+  constructor () {
+    this.invalidName = 'Name must be less than 30 characters long'
+    this.invalidEmail = 'Please insert a valid email address'
+    this.invalidContactNumber = 'Please insert a ten-digit contact number'
   }
 }
 
+const ERROR_MESSAGE = new ErrorMessage()
 
-function validName(errorArray) {
+function validName (errorArray) {
   let customerName = $('#customer-name').parsley()
   console.log('Is valid name? ' + customerName.isValid())
   if (!(customerName.isValid())) {
     $('#customer-name').val('')
-    errorArray.push = 'Name must have alphanumeric characters only and be less than 30 characters long'
+    errorArray.push(ERROR_MESSAGE.invalidName)
     return false
   }
   return true
 }
 
-function validEmail(errorArray) {
+function validEmail (errorArray) {
   let email = $('#customer-email').parsley()
-  console.log('Is valid email? ' + email.isValid())
-  if (!(email.isValid())) {
-    $('#customer-name').val('')
-    errorArray.push = 'Please insert a valid email'
+  let isValid = email.isValid()
+  console.log('Is valid email? ' + isValid)
+  if (!(isValid)) {
+    $('#customer-email').val('')
+    errorArray.push(ERROR_MESSAGE.invalidEmail)
+    return false
+  }
+  return true
+}
+
+function validContactNumber (errorArray) {
+  let contactNumber = $('#customer-tel').parsley()
+  let isValid = contactNumber.isValid()
+  console.log('Is valid contact? ' + isValid)
+  if (!(isValid)) {
+    $('#customer-tel').val('')
+    errorArray.push(ERROR_MESSAGE.invalidContactNumber)
     return false
   }
   return true
@@ -45,32 +57,38 @@ function validEmail(errorArray) {
 //   return regex.test(email)
 // }
 
-function validContactNumber(contactNumber) {
-  let isAppropritatelength = (contactNumber.length() === 10)
-  let regex = new RegExp('^[0-9]*$')
-  return regex.test(contactNumber) && isAppropritatelength
-}
+// function validContactNumber (contactNumber) {
+//   let isAppropritatelength = (contactNumber.length() === 10)
+//   let regex = new RegExp('^[0-9]*$')
+//   return regex.test(contactNumber) && isAppropritatelength
+// }
 
-function validQuery(query) {
-  let regex = new RegExp('/^[\w .,!?]+$/')
-  const MAX_QUERY_LENGTH = 1000
-  return regex.test(query) && query.length < MAX_QUERY_LENGTH
-}
+// function validQuery (query) {
+//   let regex = new RegExp('/^[\w .,!?]+$/')
+//   const MAX_QUERY_LENGTH = 1000
+//   return regex.test(query) && query.length < MAX_QUERY_LENGTH
+// }
 
-function isValid() {
+function isValid () {
   let errorMsg = []
-  if (validName(errorMsg) && validEmail(errorMsg)) { return true }
-  else {console.log(errorMsg)}
+  let isValidName = validName(errorMsg)
+  let isValidEmail = validEmail(errorMsg)
+  let isValidContactNumber = validContactNumber(errorMsg)
+  if (isValidName && isValidEmail && isValidContactNumber) { return true } else {
+    errorMsg.forEach((msg) => {
+      console.log(msg)
+    })
+  }
 }
 
-function clearAllFields() {
+function clearAllFields () {
   $('#customer-name').val('')
   $('#customer-email').val('')
   $('#customer-tel').val('')
   $('#customer-query').val('')
 }
 
-function confirmationModal() {
+function confirmationModal () {
   $('#submission-response-area').append(`<div class="alert alert-success alert-dismissible">
                                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                             <strong>Thank you for submitting your query</strong>
