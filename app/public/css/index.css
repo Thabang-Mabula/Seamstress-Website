@@ -315,4 +315,5 @@ html, body {
 
 .error-msg {
     color: red;
+    text-align: center;
 }

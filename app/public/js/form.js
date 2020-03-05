@@ -92,17 +92,16 @@ function clearAllFields () {
 
 function displayErrorMessages (errorMsgArray) {
   let errorMessageDiv = document.getElementById('error-message-div')
+  let paragraph = document.createElement('p')
+  paragraph.className = 'error-msg margin-lg-top'
   errorMsgArray.forEach((msg) => {
-    let paragraph = document.createElement('p')
-    paragraph.className = 'error-msg margin-lg-top'
     let textNode = document.createTextNode(msg)
     paragraph.appendChild(textNode)
 
     let lineBreak = document.createElement('BR')
     paragraph.appendChild(lineBreak)
-
-    errorMessageDiv.appendChild(paragraph)
   })
+  errorMessageDiv.appendChild(paragraph)
 }
 
 $(document).ready(() => {
