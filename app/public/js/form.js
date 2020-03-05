@@ -91,6 +91,8 @@ function clearAllFields () {
 // }
 
 function displayErrorMessages (errorMsgArray) {
+  clearErrorMessageArea()
+
   let errorMessageDiv = document.getElementById('error-message-div')
   let paragraph = document.createElement('p')
   paragraph.className = 'error-msg margin-lg-top'
@@ -104,8 +106,13 @@ function displayErrorMessages (errorMsgArray) {
   errorMessageDiv.appendChild(paragraph)
 }
 
+function clearErrorMessageArea () {
+  $('#error-message-div').empty()
+}
+
 $(document).ready(() => {
   $('#contact-form-submit-btn').click(() => {
+    clearErrorMessageArea()
     let name = $('#customer-name').val()
     let email = $('#customer-email').val()
     let contactNumber = $('#customer-tel').val()

@@ -14,7 +14,8 @@
     "ejs": "^3.0.1",
     "express": "^4.17.1",
     "jquery": "^3.4.1",
-    "npm-install-all": "^1.1.21"
+    "npm-install-all": "^1.1.21",
+    "sanitize-html": "^1.22.0"
   },
   "devDependencies": {
     "webpack": "^4.41.6"

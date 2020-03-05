@@ -6,6 +6,7 @@ let app = express()
 let path = require('path')
 
 let { getFileNames } = require('../controllers/galleryController')
+let { sendMail } = require('../controllers/customerQueryController')
 
 let bodyParser = require('body-parser')
 
@@ -30,8 +31,7 @@ mainRouter.get('/gallery', function (req, res) {
 // })
 
 mainRouter.post('/api/submitQuery', function (req, res) {
-  console.log('Post made')
-  console.log(req.body)
+  sendMail(req.body)
   res.sendStatus(200)
 })
 module.exports = mainRouter
