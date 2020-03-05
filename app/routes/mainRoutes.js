@@ -32,5 +32,6 @@ mainRouter.get('/gallery', function (req, res) {
 mainRouter.post('/api/submitQuery', function (req, res) {
   console.log('Post made')
   console.log(req.body)
+  res.sendStatus(200)
 })
 module.exports = mainRouter

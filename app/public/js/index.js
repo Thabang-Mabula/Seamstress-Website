@@ -67,5 +67,4 @@ $(document).ready(function () {
     window.location.href = '/gallery'
   })
 
-  $('#ul-li').lightGallery()
 })

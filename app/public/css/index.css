@@ -7,7 +7,7 @@
     --text-body-color: rgb(38, 38, 38);
     --brand-name-font: 'Old Standard TT', serif;
     --off-white-color: #fefeff;
-    --blue-color:  rgb(2, 2, 14);
+    --blue-color: rgb(2, 2, 14);
 }
 
 html, body {
@@ -84,7 +84,7 @@ html, body {
     padding-top: 5vh;
     letter-spacing: 2px;
     width: 100%;
-    padding-left: 10vw; 
+    padding-left: 10vw;
     padding-right: 10vw;
 }
 
@@ -246,7 +246,6 @@ html, body {
     margin-bottom: 6vh;
 }
 
-
 .margin-sm-top {
     margin-top: 3vh;
 }
@@ -272,7 +271,8 @@ html, body {
     list-style-type: none;
     line-height: 2.5em;
 }
-.partial-underline{ 
+
+.partial-underline {
     border-bottom: 0.1em solid var(--blue-color);
 }
 
@@ -280,7 +280,7 @@ html, body {
     background-color: rgb(140, 140, 140);
     color: var(--off-white-color);
     border-radius: 100%;
-    width: 10em; 
+    width: 10em;
     height: 10em;
     font-family: var(--text-body-font);
     margin-bottom: 3em;
@@ -302,11 +302,17 @@ html, body {
     box-shadow: none;
 }
 
-.transition{
+.transition {
+    -webkit-transition: left 0.3s ease-out;
+    /* Chrome 1-25, Safari 3.2+ */
+    -moz-transition: left 0.3s ease-out;
+    /* Firefox 4-15 */
+    -o-transition: left 0.3s ease-out;
+    /* Opera 10.50–12.00 */
+    transition: left 0.3s ease-out;
+    /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
+}
 
-    -webkit-transition: left 0.3s ease-out;  /* Chrome 1-25, Safari 3.2+ */
-       -moz-transition: left 0.3s ease-out;  /* Firefox 4-15 */
-         -o-transition: left 0.3s ease-out;  /* Opera 10.50–12.00 */
-            transition: left 0.3s ease-out;  /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
-  
-  }
+.error-msg {
+    color: red;
+}

@@ -1,3 +1,4 @@
+
 class ContactRequest {
   constructor (name, emailAddress, contactNumber = '', comment) {
     this.name = name
@@ -19,7 +20,7 @@ const ERROR_MESSAGE = new ErrorMessage()
 
 function validName (errorArray) {
   let customerName = $('#customer-name').parsley()
-  console.log('Is valid name? ' + customerName.isValid())
+  // console.log('Is valid name? ' + customerName.isValid())
   if (!(customerName.isValid())) {
     $('#customer-name').val('')
     errorArray.push(ERROR_MESSAGE.invalidName)
@@ -31,7 +32,7 @@ function validName (errorArray) {
 function validEmail (errorArray) {
   let email = $('#customer-email').parsley()
   let isValid = email.isValid()
-  console.log('Is valid email? ' + isValid)
+  // console.log('Is valid email? ' + isValid)
   if (!(isValid)) {
     $('#customer-email').val('')
     errorArray.push(ERROR_MESSAGE.invalidEmail)
@@ -43,7 +44,6 @@ function validEmail (errorArray) {
 function validContactNumber (errorArray) {
   let contactNumber = $('#customer-tel').parsley()
   let isValid = contactNumber.isValid()
-  console.log('Is valid contact? ' + isValid)
   if (!(isValid)) {
     $('#customer-tel').val('')
     errorArray.push(ERROR_MESSAGE.invalidContactNumber)
@@ -69,16 +69,11 @@ function validContactNumber (errorArray) {
 //   return regex.test(query) && query.length < MAX_QUERY_LENGTH
 // }
 
-function isValid () {
-  let errorMsg = []
+function isValid (errorMsg) {
   let isValidName = validName(errorMsg)
   let isValidEmail = validEmail(errorMsg)
   let isValidContactNumber = validContactNumber(errorMsg)
-  if (isValidName && isValidEmail && isValidContactNumber) { return true } else {
-    errorMsg.forEach((msg) => {
-      console.log(msg)
-    })
-  }
+  return (isValidName && isValidEmail && isValidContactNumber)
 }
 
 function clearAllFields () {
@@ -88,11 +83,26 @@ function clearAllFields () {
   $('#customer-query').val('')
 }
 
-function confirmationModal () {
-  $('#submission-response-area').append(`<div class="alert alert-success alert-dismissible">
-                                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                            <strong>Thank you for submitting your query</strong>
-                                        </div>`)
+// function confirmationModal () {
+//   $('#submission-response-area').append(`<div class="alert alert-success alert-dismissible">
+//                                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+//                                             <strong>Thank you for submitting your query</strong>
+//                                         </div>`)
+// }
+
+function displayErrorMessages (errorMsgArray) {
+  let errorMessageDiv = document.getElementById('error-message-div')
+  errorMsgArray.forEach((msg) => {
+    let paragraph = document.createElement('p')
+    paragraph.className = 'error-msg margin-lg-top'
+    let textNode = document.createTextNode(msg)
+    paragraph.appendChild(textNode)
+
+    let lineBreak = document.createElement('BR')
+    paragraph.appendChild(lineBreak)
+
+    errorMessageDiv.appendChild(paragraph)
+  })
 }
 
 $(document).ready(() => {
@@ -106,8 +116,8 @@ $(document).ready(() => {
     // console.log('Is valid email: ' + validEmail(email))
     // console.log('Is valid contact number: ' + validContactNumber(contactNumber))
     // console.log('Is valid query: ' + validQuery(query))
-
-    if (isValid(contactRequest)) {
+    let errorMsgArray = []
+    if (isValid(errorMsgArray)) {
       $.ajax({
         type: 'POST',
         url: '/api/submitQuery',
@@ -115,9 +125,11 @@ $(document).ready(() => {
         data: JSON.stringify(contactRequest),
         success: function (response) {
           clearAllFields()
-          confirmationModal()
+          // confirmationModal()
         }
       })
+    } else {
+      displayErrorMessages(errorMsgArray)
     }
   })
 })
