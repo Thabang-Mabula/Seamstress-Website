@@ -153,7 +153,12 @@ $(document).ready(() => {
           data: JSON.stringify(contactRequest),
           success: function (response) {
             clearAllFields()
-            alert('Your message was successfully sent. Thank you for contacting us!')
+            console.log(response)
+            if (response === 'OK') {
+              alert('Your message was successfully sent. Thank you for contacting us!')
+            } else {
+              alert("We're so sorry, your message could not be sent at this time. Please try again, or, if you've already re-submited before, try and contact us using one of our contact details.")
+            }
           },
           error: function (response) {
             alert("We're so sorry, your message could not be sent at this time. Please try again, or, if you've already re-submited before, try and contact us using one of our contact details.")

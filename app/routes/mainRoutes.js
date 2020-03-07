@@ -32,9 +32,11 @@ mainRouter.get('/gallery', function (req, res) {
 
 mainRouter.post('/api/submitQuery', function (req, res) {
   if (sendMail(req.body)) {
+    console.log('Email was sent in router')
     res.sendStatus(200)
   } else {
     res.sendStatus(501)
   }
+  res.status(200)
 })
 module.exports = mainRouter
