@@ -1,3 +1,4 @@
+const { WEBSITE_NAME, WEBSITE_PASSWORD, SEND_TO_ADDRESS } = require('./../../config.js')
 var sanitizeHtml = require('sanitize-html')
 
 function generateEmail (name, email, contactNumber, comment) {
@@ -6,16 +7,16 @@ function generateEmail (name, email, contactNumber, comment) {
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'emailAddress',
-      pass: 'password'
+      user: WEBSITE_NAME,
+      pass: WEBSITE_PASSWORD
     }
   })
 
   var mailOptions = {
-    from: 'emailAddre',
-    to: 'elolamfashion1@yahoo.com',
+    from: WEBSITE_PASSWORD,
+    to: SEND_TO_ADDRESS,
     subject: 'Customer Request from Website',
-    text: `Name: ${name} \n Email: ${email} \n Contact number: ${contactNumber} \n Comment/Query: ${comment}`
+    text: `Name: ${name} \n \n Email: ${email} \n \n Contact number: ${contactNumber} \n \n Comment/Query: ${comment}`
   }
 
   transporter.sendMail(mailOptions, function (error, info) {
