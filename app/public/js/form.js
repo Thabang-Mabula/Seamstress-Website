@@ -13,6 +13,7 @@ class ErrorMessage {
     this.invalidName = 'Name must be less than 30 characters long'
     this.invalidEmail = 'Please insert a valid email address'
     this.invalidContactNumber = 'Please insert a ten-digit contact number'
+    this.invalidQuery = 'Message area cannot be left empy'
   }
 }
 
@@ -52,6 +53,17 @@ function validContactNumber (errorArray) {
   return true
 }
 
+function validQuery (errorArray) {
+  let customerQuery = $('#customer-query').parsley()
+  let isValid = customerQuery.isValid()
+  if (!(isValid)) {
+    $('#customer-query').val('')
+    errorArray.push(ERROR_MESSAGE.invalidQuery)
+    return false
+  }
+  return true
+}
+
 // function validEmail(email) {
 //   let regex = /^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$/
 //   return regex.test(email)
@@ -73,7 +85,8 @@ function isValid (errorMsg) {
   let isValidName = validName(errorMsg)
   let isValidEmail = validEmail(errorMsg)
   let isValidContactNumber = validContactNumber(errorMsg)
-  return (isValidName && isValidEmail && isValidContactNumber)
+  let isValidQuery = validQuery(errorMsg)
+  return (isValidName && isValidEmail && isValidContactNumber && isValidQuery)
 }
 
 function clearAllFields () {
