@@ -10,9 +10,9 @@ class ContactRequest {
 
 class ErrorMessage {
   constructor () {
-    this.invalidName = 'Name must be less than 30 characters long'
-    this.invalidEmail = 'Please insert a valid email address'
-    this.invalidContactNumber = 'Please insert a ten-digit contact number'
+    this.invalidName = 'Name field is empty or is more than 30 characters long'
+    this.invalidEmail = 'Email address field is empty or the email address is invalid'
+    this.invalidContactNumber = 'Contact number must be ten-digits long'
     this.invalidQuery = 'Message area cannot be left empy'
   }
 }
@@ -96,12 +96,13 @@ function clearAllFields () {
   $('#customer-query').val('')
 }
 
-// function confirmationModal () {
-//   $('#submission-response-area').append(`<div class="alert alert-success alert-dismissible">
-//                                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-//                                             <strong>Thank you for submitting your query</strong>
-//                                         </div>`)
-// }
+function confirmationModal () {
+  // $('#submission-response-area').append(`<div class="alert alert-success alert-dismissible">
+  //                                           <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  //                                           <strong>Thank you for submitting your query</strong>
+  //                                       </div>`)
+
+}
 
 function displayErrorMessages (errorMsgArray) {
   clearErrorMessageArea()
@@ -109,8 +110,15 @@ function displayErrorMessages (errorMsgArray) {
   let errorMessageDiv = document.getElementById('error-message-div')
   let paragraph = document.createElement('p')
   paragraph.className = 'error-msg margin-lg-top'
+
+  let textNode = document.createTextNode("Your message wasn't sent for the following reason(s):")
+  paragraph.appendChild(textNode)
+
+  let lineBreak = document.createElement('BR')
+  paragraph.appendChild(lineBreak)
+
   errorMsgArray.forEach((msg) => {
-    let textNode = document.createTextNode(msg)
+    let textNode = document.createTextNode(' - ' + msg)
     paragraph.appendChild(textNode)
 
     let lineBreak = document.createElement('BR')
@@ -125,30 +133,35 @@ function clearErrorMessageArea () {
 
 $(document).ready(() => {
   $('#contact-form-submit-btn').click(() => {
-    clearErrorMessageArea()
-    let name = $('#customer-name').val()
-    let email = $('#customer-email').val()
-    let contactNumber = $('#customer-tel').val()
-    let query = $('#customer-query').val()
-    let contactRequest = new ContactRequest(name, email, contactNumber, query)
-    // console.log('Is valid name: ' + validName(name))
-    // console.log('Is valid email: ' + validEmail(email))
-    // console.log('Is valid contact number: ' + validContactNumber(contactNumber))
-    // console.log('Is valid query: ' + validQuery(query))
-    let errorMsgArray = []
-    if (isValid(errorMsgArray)) {
-      $.ajax({
-        type: 'POST',
-        url: '/api/submitQuery',
-        contentType: 'application/json',
-        data: JSON.stringify(contactRequest),
-        success: function (response) {
-          clearAllFields()
-          // confirmationModal()
-        }
-      })
-    } else {
-      displayErrorMessages(errorMsgArray)
+    if (confirm('Are you sure you want to submit your message to El Olam Fashion?')) {
+      clearErrorMessageArea()
+      let name = $('#customer-name').val()
+      let email = $('#customer-email').val()
+      let contactNumber = $('#customer-tel').val()
+      let query = $('#customer-query').val()
+      let contactRequest = new ContactRequest(name, email, contactNumber, query)
+      // console.log('Is valid name: ' + validName(name))
+      // console.log('Is valid email: ' + validEmail(email))
+      // console.log('Is valid contact number: ' + validContactNumber(contactNumber))
+      // console.log('Is valid query: ' + validQuery(query))
+      let errorMsgArray = []
+      if (isValid(errorMsgArray)) {
+        $.ajax({
+          type: 'POST',
+          url: '/api/submitQuery',
+          contentType: 'application/json',
+          data: JSON.stringify(contactRequest),
+          success: function (response) {
+            clearAllFields()
+            alert('Your message was successfully sent. Thank you for contacting us!')
+          },
+          error: function (response) {
+            alert("We're so sorry, your message could not be sent at this time. Please try again, or, if you've already re-submited before, try and contact us using one of our contact details.")
+          }
+        })
+      } else {
+        displayErrorMessages(errorMsgArray)
+      }
     }
   })
 })

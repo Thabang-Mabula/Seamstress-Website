@@ -21,9 +21,9 @@ function generateEmail (name, email, contactNumber, comment) {
 
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
-      console.log(error)
+      return false
     } else {
-      console.log('Email sent: ' + info.response)
+      return true
     }
   })
 }
@@ -34,7 +34,7 @@ function sendMail (queryObj) {
   let contactNumber = sanitizeHtml(queryObj.contactNumber)
   let comment = sanitizeHtml(queryObj.comment)
 
-  generateEmail(name, email, contactNumber, comment)
+  return generateEmail(name, email, contactNumber, comment)
 }
 
 module.exports = { sendMail: sendMail }

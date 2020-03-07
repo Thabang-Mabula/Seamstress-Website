@@ -31,7 +31,10 @@ mainRouter.get('/gallery', function (req, res) {
 // })
 
 mainRouter.post('/api/submitQuery', function (req, res) {
-  sendMail(req.body)
-  res.sendStatus(200)
+  if (sendMail(req.body)) {
+    res.sendStatus(200)
+  } else {
+    res.sendStatus(501)
+  }
 })
 module.exports = mainRouter
