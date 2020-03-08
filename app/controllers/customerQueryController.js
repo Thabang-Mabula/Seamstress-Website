@@ -21,11 +21,12 @@ function generateEmail (name, email, contactNumber, comment) {
 
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
-      return false
+      // return false
     } else {
-      return true
+      // return true
     }
   })
+  return true
 }
 
 function sendMail (queryObj) {
