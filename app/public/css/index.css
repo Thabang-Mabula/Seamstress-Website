@@ -277,6 +277,8 @@ html, body {
 }
 
 .spec-btn {
+    pointer-events: none;
+    cursor: not-allowed;
     background-color: rgb(140, 140, 140);
     color: var(--off-white-color);
     border-radius: 100%;
@@ -287,12 +289,14 @@ html, body {
     /* box-shadow: 0em 0em 0.5em rgba(126, 126, 126, 0.3); */
 }
 
-.spec-btn:hover {
-    width: 12em;
-    height: 12em;
+.spec-btn-alt {
+    pointer-events: none;
+    cursor: not-allowed;
+    width: 10em;
+    height: 10em;
     border: 0.3em solid rgb(140, 140, 140);
     background-color: var(--off-white-color);
-    font-weight: bolder;
+    border-radius: 100%;
     /* font-size: 1em; */
     /* box-shadow: 0em 0em 0.5em rgba(126, 126, 126, 0.3); */
 }
@@ -303,13 +307,13 @@ html, body {
 }
 
 .transition {
-    -webkit-transition: left 0.3s ease-out;
+    /* -webkit-transition: left 0.3s ease-out; */
     /* Chrome 1-25, Safari 3.2+ */
-    -moz-transition: left 0.3s ease-out;
+    /* -moz-transition: left 0.3s ease-out; */
     /* Firefox 4-15 */
-    -o-transition: left 0.3s ease-out;
+    /* -o-transition: left 0.3s ease-out; */
     /* Opera 10.50–12.00 */
-    transition: left 0.3s ease-out;
+    /* transition: left 0.3s ease-out; */
     /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
 }
 
