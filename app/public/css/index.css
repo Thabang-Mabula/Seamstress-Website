@@ -321,3 +321,7 @@ html, body {
 .footer-hyperlink:hover, .footer-hyperlink:active, .footer-hyperlink:visited {
     color: white
 }
+
+.icon-provider-info, .icon-provider-info:active, .icon-provider-info:hover, .icon-provider-info:visited { 
+    color: rgb(201, 201, 201)
+}
