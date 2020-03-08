@@ -317,3 +317,7 @@ html, body {
     color: red;
     text-align: center;
 }
+
+.footer-hyperlink:hover, .footer-hyperlink:active, .footer-hyperlink:visited {
+    color: white
+}
