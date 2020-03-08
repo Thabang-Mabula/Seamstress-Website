@@ -6,6 +6,7 @@ let app = express()
 let path = require('path')
 
 let { getFileNames } = require('../controllers/galleryController')
+let { sendMail } = require('../controllers/customerQueryController')
 
 let bodyParser = require('body-parser')
 
@@ -24,8 +25,18 @@ mainRouter.get('/gallery', function (req, res) {
   res.status(200)
 })
 
-mainRouter.post('/api/gallery', function (req, res) {
-  res.send(getFileNames())
+// mainRouter.post('/api/gallery', function (req, res) {
+//   res.send(getFileNames())
+//   res.status(200)
+// })
+
+mainRouter.post('/api/submitQuery', function (req, res) {
+  if (sendMail(req.body)) {
+    console.log('Email was sent in router')
+    res.sendStatus(200)
+  } else {
+    res.sendStatus(501)
+  }
   res.status(200)
 })
 module.exports = mainRouter
