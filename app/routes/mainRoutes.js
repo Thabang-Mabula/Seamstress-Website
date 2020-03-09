@@ -21,7 +21,7 @@ mainRouter.get('/', function (req, res) {
 })
 
 mainRouter.get('/gallery', function (req, res) {
-  res.render('gallery.html', { /* data */ })
+  res.render('gallery.ejs', { title: 'Gallery' })
   res.status(200)
 })
 

@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname, './app/public')))
 app.use(express.static(path.join(__dirname, './app/controllers')))
 
 app.engine('html', require('ejs').renderFile)
-app.set('view engine', 'html')
+app.set('view engine', 'ejs')
 
 let bodyParser = require('body-parser')
 app.use(bodyParser.json())
