@@ -13,8 +13,8 @@ function retrieveProducts () {
         res.rows.forEach((line) => {
           let detailsArray = parseTupleStringToArray(line.row)
           let item = {
-            descr: detailsArray[0],
-            price: detailsArray[1],
+            descr: String(detailsArray[0]),
+            price: Number(detailsArray[1]),
             imgUrl: detailsArray[2]
           }
           itemArray.push(item)

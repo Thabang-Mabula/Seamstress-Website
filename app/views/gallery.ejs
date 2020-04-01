@@ -63,9 +63,10 @@
             <div class="col-lg-10">
                 <ul class="img-list" id="ul-li">
                     <% items.forEach(function(item){ %>
-                        <li class="img-list-item" data-src="<%= item.imgUrl %>">
-                            <img class="thumbnail" src="<%= item.imgUrl %>" />
-                            <p class="item-descr margin-sm-top"> <%- item.descr %> </p>
+                        <li class="img-list-item reactive-img-spacing" data-src="<%= item.imgUrl %>">
+                            <img class="thumbnail reactive-img-height" src="<%= item.imgUrl %>" />
+                            <p class="item-descr margin-sm-top"> <%- String(item.descr).replace(/['"]+/g, '') %> </p>
+                            <% console.log(item.descr) %>
                             <p class="item-price"> R <%= Number(item.price).toFixed(2) %> </p>
                         </li>
                     <% }); %>
