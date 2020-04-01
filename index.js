@@ -1,6 +1,9 @@
 'use strict'
 global.__basedir = __dirname
 
+const dotenv = require('dotenv')
+dotenv.config()
+
 let express = require('express')
 let path = require('path')
 let app = express()

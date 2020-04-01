@@ -1,68 +1,75 @@
 <HTML>
 
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title> El Olam Fashion </title>
-    
-        <link rel="stylesheet" href="/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/css/index.css">
-        <link rel="stylesheet" href="/css/gallery.css">
-        <link type="text/css" rel="stylesheet" href="css/lightgallery.css" />
-    </head>
-    
-    <body>
-        <!--Navbar-->
-        <nav class="navbar navbar-light bg-off-white fixed-top">
-            <a class="navbar-brand brand-name-font" href="#">El Olam Fashion</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-    
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/#about-us-anchor">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link gallery-link" href="/gallery">Gallery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/#contact-us-anchor">Contact Us</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    
-        <!--/.Navbar-->
-    
-    
-        <div class="container-fluid p-0">
-            <div class="row">
-                <div class="col-lg-6 col-sm-8 col-10">
-                    <div class="about-me-heading-container">
-                        <h1 class="about-me-heading"> <%- title %> </h1>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-4 col-2">
-    
-                </div>
-    
-            </div>
-            <div class="row d-flex justify-content-center">
-                <div class="col-lg-10">
-                    <div class="about-me-body body-text">
-                        Click on any image to view it in full-size through the interactive photo gallery.
-                    </div>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> El Olam Fashion </title>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/gallery.css">
+    <link type="text/css" rel="stylesheet" href="css/lightgallery.css" />
+</head>
+
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-light bg-off-white fixed-top">
+        <a class="navbar-brand brand-name-font" href="#">El Olam Fashion</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/#about-us-anchor">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link gallery-link" href="/gallery">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/#contact-us-anchor">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--/.Navbar-->
+
+
+    <div class="container-fluid p-0">
+        <div class="row">
+            <div class="col-lg-6 col-sm-8 col-10">
+                <div class="about-me-heading-container">
+                    <h1 class="about-me-heading"> <%- title %> </h1>
                 </div>
             </div>
-            <div class="row d-flex justify-content-center">
-                <div class="col-lg-10">
-                    <ul class="img-list" id="ul-li">
-                        <li class="img-list-item" data-src="images/gallery/1.jpg">
+            <div class="col-lg-4 col-sm-4 col-2">
+
+            </div>
+
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-10">
+                <div class="about-me-body body-text">
+                    Click on any image to view it in full-size through the interactive photo gallery.
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-10">
+                <ul class="img-list" id="ul-li">
+                    <% items.forEach(function(item){ %>
+                        <li class="img-list-item" data-src="<%= item.imgUrl %>">
+                            <img class="thumbnail" src="<%= item.imgUrl %>" />
+                            <p class="item-descr margin-sm-top"> <%- item.descr %> </p>
+                            <p class="item-price"> R <%= Number(item.price).toFixed(2) %> </p>
+                        </li>
+                    <% }); %>
+                    <!-- <li class="img-list-item" data-src="images/gallery/1.jpg">
                             <img class="img-thumbnail" src="images/gallery/1.jpg" />
                         </li>
                         <li class="img-list-item" data-src="images/gallery/2.jpg">
@@ -112,52 +119,52 @@
                         </li>
                         <li class="img-list-item" data-src="images/gallery/17.jpg">
                             <img class="img-thumbnail" src="images/gallery/17.jpg" />
-                        </li>
+                        </li> -->
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+    <footer class="page-footer">
+        <div class="container-fluid blue-color">
+            <div class="row">
+                <div class="col-lg-4 col-sm-4 col-4 d-flex justify-content-center align-self-center">
+                    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+                        <br>
+                        A Thabz Creation
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-4 d-flex justify-content-center align-self-center">
+                    <ul>
+                        <li><a class="footer-hyperlink" href="/"> Home </a></li>
+                        <li><a class="footer-hyperlink" href="/#about-us">About Us </a> </li>
+                        <li><a class="footer-hyperlink" href="/gallery">Gallery </a></li>
+                        <li><a class="footer-hyperlink" href="/#contact-us">Contact Us </a></li>
                     </ul>
                 </div>
-    
-            </div>
-        </div>
-        </div>
-    
-        <footer class="page-footer">
-            <div class="container-fluid blue-color">
-                <div class="row">
-                    <div class="col-lg-4 col-sm-4 col-4 d-flex justify-content-center align-self-center">
-                        <div class="footer-copyright text-center py-3">© 2019 Copyright:
-                            <br>
-                            A Thabz Creation
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-4 col-4 d-flex justify-content-center align-self-center">
-                        <ul>
-                            <li><a class="footer-hyperlink" href="/"> Home </a></li>
-                            <li><a class="footer-hyperlink" href="/#about-us">About Us </a> </li>
-                            <li><a class="footer-hyperlink" href="/gallery">Gallery </a></li>
-                            <li><a class="footer-hyperlink" href="/#contact-us">Contact Us </a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-4 col-sm-4 col-4 d-flex justify-content-center align-self-center">
-                        <p class="brand-name-font">El Olam Fashion </p>
-                    </div>
+                <div class="col-lg-4 col-sm-4 col-4 d-flex justify-content-center align-self-center">
+                    <p class="brand-name-font">El Olam Fashion </p>
                 </div>
             </div>
-        </footer>
-    
-    
-        <script src="/js/jquery-3.4.1.min.js"></script>
-        <script src="/js/bootstrap.min.js"></script>
-        <script src="/js/two.js"></script>
-        <script src="/js/index.js"></script>
-        <script src="/js/parallax.min.js"></script>
-    
-    
-        <script src="/js/lightgallery.min.js"></script>
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>  -->
-    
-        <script src="js/lg-thumbnail.min.js"></script>
-        <script src="js/lg-fullscreen.min.js"></script>
-        <script src="/js/gallery.js"></script>
-    </body>
-    
-    </HTML>
+        </div>
+    </footer>
+
+
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/two.js"></script>
+    <script src="/js/index.js"></script>
+    <script src="/js/parallax.min.js"></script>
+
+
+    <script src="/js/lightgallery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>  -->
+
+    <script src="js/lg-thumbnail.min.js"></script>
+    <script src="js/lg-fullscreen.min.js"></script>
+    <script src="/js/gallery.js"></script>
+</body>
+
+</HTML>
