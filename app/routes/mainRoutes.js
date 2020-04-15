@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json())
 
 mainRouter.get('/', function (req, res) {
-  res.render('index.html', { /* data */ })
+  res.render('index.ejs', { /* data */ })
   res.status(200)
 })
 
