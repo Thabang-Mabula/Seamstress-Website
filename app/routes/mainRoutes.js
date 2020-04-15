@@ -5,8 +5,9 @@ let mainRouter = express.Router()
 let app = express()
 let path = require('path')
 
-let { getFileNames } = require('../controllers/galleryController')
-let { sendMail } = require('../controllers/customerQueryController')
+const { getFileNames } = require('../controllers/galleryController')
+const { sendMail } = require('../controllers/customerQueryController')
+const { retrieveProducts } = require('../models/dbQueries.js')
 
 let bodyParser = require('body-parser')
 
@@ -20,9 +21,15 @@ mainRouter.get('/', function (req, res) {
   res.status(200)
 })
 
-mainRouter.get('/gallery', function (req, res) {
-  res.render('gallery.html', { /* data */ })
-  res.status(200)
+mainRouter.get('/gallery', async function (req, res) {
+  retrieveProducts().then((items) => {
+    res.render('gallery.ejs', { title: 'Gallery', items })
+    res.status(200)
+  }).catch((err) => {
+    console.log(err)
+    res.redirect('/')
+    res.status(200)
+  })
 })
 
 // mainRouter.post('/api/gallery', function (req, res) {
