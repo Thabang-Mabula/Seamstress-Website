@@ -64,20 +64,23 @@ mainRouter.post('/api/submitQuery', function (req, res) {
   verifyCaptcha(req.body.captcha)
     .then((apiRes) => {
       if (apiRes.data.success) {
-        console.log('Captch validated')
+        sendMail(req.body).then((info) => {
+          res.send('Success')
+          res.sendStatus(501)
+        }).catch((err) => {
+          res.send(err)
+          res.sendStatus(501)
+        })
+      } else {
+        let error = new Error('Not verified by reCAPTCHA server')
+        res.send(error)
+        res.sendStatus(501)
       }
-
-      // if (sendMail(req.body)) {
-      //   res.sendStatus(200)
-      // } else {
-      //   res.sendStatus(501)
-      // }
     })
     .catch(() => {
       let error = new Error('Could not connect to reCAPTCHA server')
       res.send(error)
       res.sendStatus(501)
-      // console.error(recaptcha.translateErrors(errorCodes))
     })
 })
 module.exports = mainRouter
