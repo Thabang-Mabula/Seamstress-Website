@@ -59,12 +59,11 @@ $(function () {
 
 $(document).ready(function () {
   $(document).on('click', '.spec-btn', () => {
-    $(this).text('Done nigga')
+    $(this).text('Done')
     // console.log('Button clicked')
   })
 
   $('#view-gallery-btn').click(() => {
     window.location.href = '/gallery'
   })
-
 })

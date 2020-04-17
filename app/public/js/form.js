@@ -1,10 +1,11 @@
 
 class ContactRequest {
-  constructor (name, emailAddress, contactNumber = '', comment) {
+  constructor (name, emailAddress, contactNumber = '', comment, captcha) {
     this.name = name
     this.emailAddress = emailAddress
     this.contactNumber = contactNumber
     this.comment = comment
+    this.captcha = captcha
   }
 }
 
@@ -64,23 +65,6 @@ function validQuery (errorArray) {
   return true
 }
 
-// function validEmail(email) {
-//   let regex = /^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$/
-//   return regex.test(email)
-// }
-
-// function validContactNumber (contactNumber) {
-//   let isAppropritatelength = (contactNumber.length() === 10)
-//   let regex = new RegExp('^[0-9]*$')
-//   return regex.test(contactNumber) && isAppropritatelength
-// }
-
-// function validQuery (query) {
-//   let regex = new RegExp('/^[\w .,!?]+$/')
-//   const MAX_QUERY_LENGTH = 1000
-//   return regex.test(query) && query.length < MAX_QUERY_LENGTH
-// }
-
 function isValid (errorMsg) {
   let isValidName = validName(errorMsg)
   let isValidEmail = validEmail(errorMsg)
@@ -131,6 +115,16 @@ function clearErrorMessageArea () {
   $('#error-message-div').empty()
 }
 
+function isValidCaptcha (captcha, errorMsgArray) {
+  if (captcha === undefined ||
+    captcha === null ||
+    captcha === '') {
+    errorMsgArray.push('You must validate your submission with reCAPTCHA')
+    return false
+  }
+  return true
+}
+
 $(document).ready(() => {
   $('#contact-form-submit-btn').click(() => {
     if (confirm('Are you sure you want to submit your message to El Olam Fashion?')) {
@@ -139,13 +133,12 @@ $(document).ready(() => {
       let email = $('#customer-email').val()
       let contactNumber = $('#customer-tel').val()
       let query = $('#customer-query').val()
-      let contactRequest = new ContactRequest(name, email, contactNumber, query)
-      // console.log('Is valid name: ' + validName(name))
-      // console.log('Is valid email: ' + validEmail(email))
-      // console.log('Is valid contact number: ' + validContactNumber(contactNumber))
-      // console.log('Is valid query: ' + validQuery(query))
+      let captcha = $('#g-recaptcha-response').val()
+
       let errorMsgArray = []
-      if (isValid(errorMsgArray)) {
+      if (isValid(errorMsgArray) && isValidCaptcha(captcha, errorMsgArray)) {
+        let contactRequest = new ContactRequest(name, email, contactNumber, query, captcha)
+
         $.ajax({
           type: 'POST',
           url: '/api/submitQuery',
