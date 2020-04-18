@@ -19,14 +19,7 @@ function generateEmail (name, email, contactNumber, comment) {
     text: `Name: ${name} \n \n Email: ${email} \n \n Contact number: ${contactNumber} \n \n Comment/Query: ${comment}`
   }
 
-  transporter.sendMail(mailOptions, function (error, info) {
-    if (error) {
-      // return false
-    } else {
-      // return true
-    }
-  })
-  return true
+  return transporter.sendMail(mailOptions)
 }
 
 function sendMail (queryObj) {

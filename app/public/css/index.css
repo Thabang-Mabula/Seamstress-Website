@@ -8,6 +8,8 @@
     --brand-name-font: 'Old Standard TT', serif;
     --off-white-color: #fefeff;
     --blue-color: rgb(2, 2, 14);
+    --invalid-input-bg-color: #ed3a2d49;
+    --invalid-text-color: #ed3a2d; 
 }
 
 html, body {
@@ -318,9 +320,16 @@ html, body {
 }
 
 .error-msg {
-    color: red;
+    color: var(--invalid-text-color);
     text-align: center;
+    font-size: 0.8em;
 }
+
+.invalid-field { 
+    background-color: var(--invalid-input-bg-color)
+}
+
+
 
 .footer-hyperlink:hover, .footer-hyperlink:active, .footer-hyperlink:visited {
     color: white
