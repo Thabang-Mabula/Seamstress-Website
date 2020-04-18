@@ -82,7 +82,4 @@ ul.img-list li {
     color:  rgb(120, 120, 120);
 }
 
-#customer-name:after {
-    color: red;
-    content: " *";
-}
+
