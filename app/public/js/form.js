@@ -78,6 +78,7 @@ function clearAllFields () {
   $('#customer-email').val('')
   $('#customer-tel').val('')
   $('#customer-query').val('')
+  grecaptcha.reset()
 }
 
 function confirmationModal () {
@@ -144,17 +145,13 @@ $(document).ready(() => {
           url: '/api/submitQuery',
           contentType: 'application/json',
           data: JSON.stringify(contactRequest),
-          success: function (response) {
+          success: function () {
             clearAllFields()
-            console.log(response)
-            if (response === 'OK') {
-              alert('Your message was successfully sent. Thank you for contacting us!')
-            } else {
-              alert("We're so sorry, your message could not be sent at this time. Please try again, or, if you've already re-submited before, try and contact us using one of our contact details.")
-            }
+            alert('Your message was successfully sent. Thank you for contacting us!')
           },
-          error: function (response) {
+          error: function () {
             alert("We're so sorry, your message could not be sent at this time. Please try again, or, if you've already re-submited before, try and contact us using one of our contact details.")
+            grecaptcha.reset()
           }
         })
       } else {
