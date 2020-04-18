@@ -46,12 +46,20 @@ html, body {
 
 @media screen and (orientation: landscape) {
     .landing-image {
+        position:fixed; 
+        z-index: 0;
         background: url('/images/sewing-machine-gold-landscape.jpg') no-repeat;
-        /* background-size: cover; */
+        background-size: cover;
         background-position: left bottom;
         background-size: 100% auto;
         height: 75vh;
         width: 100%;
+    }
+
+    .container-fluid {
+        position: relative; 
+        z-index:1;
+        background-color: var(--off-white-color);
     }
 }
 
