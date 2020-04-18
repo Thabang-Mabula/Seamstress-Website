@@ -81,3 +81,8 @@ ul.img-list li {
     padding-left: 4vw;
     color:  rgb(120, 120, 120);
 }
+
+#customer-name:after {
+    color: red;
+    content: " *";
+}
