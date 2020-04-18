@@ -57,9 +57,6 @@ $(function () {
 //   console.log('Button clicked')
 // })
 
-let startingHeightOfContent = $('.landing-image').height() + $('.navbar').height()
-$('.container-fluid').css('top', startingHeightOfContent)
-
 $(document).ready(function () {
   $(document).on('click', '.spec-btn', () => {
     $(this).text('Done')
