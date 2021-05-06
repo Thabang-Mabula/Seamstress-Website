@@ -20,7 +20,7 @@
     "npm-install-all": "^1.1.21",
     "pg": "^7.18.2",
     "recaptcha2": "^1.3.3",
-    "sanitize-html": "^1.22.0"
+    "sanitize-html": "^2.3.2"
   },
   "devDependencies": {
     "webpack": "^4.41.6"
